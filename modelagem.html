@@ -17,7 +17,7 @@ cronogra:
 
 <!-- User --> ]
     <!-- 
-   - nome: string
+   - name: string
    - kind: enum [:admin, :treasurer]
    - position: enum [:president, :v-president, :director, :treasurer, :prospect, :mirror, :son]
    - status: enum [:active, :inactive, :expelled]
@@ -34,73 +34,92 @@ cronogra:
    - photo: string
    - faction: references 
      -->
-<user>
-rails g model User name:string kind:integer position:integer  status:integer year:date marital:date phone:string emergency_phone:string email:string date_add:date date_baptized:date occupation:string function:string notes:text birth:date cpf:string photo:string faction:references 
-</user>
+ <user>
+    rails g model User name:string kind:integer position:integer  status:integer year:date marital:date phone:string emergency_phone:string email:string date_add:date date_baptized:date occupation:string function:string notes:text birth:date cpf:string photo:string faction:references 
+ </user>
 
 <!-- Address -->
     <!-- 
-      street: string
-      number: string
-      district: string
-      city: string 
-      state: string
-      cep: string
+     - street:string
+     - number:string
+     - district:string
+     - city:string 
+     - state:string
+     - cep:string
      -->
-
+ <address>
+     rails g model Address street:string number:string district:string city:string state:string cep:string
+ </address>
 
 <!-- Faction -->
     <!-- 
-      nome: string
-      data_found: date 
-      director: references
+      name:string
+      data_found:date 
+      director:references
      -->
-
+ <faction>
+    rails g model Faction name:string data_found:date director:references
+ </faction>
 
 <!-- Motorcycle -->
     <!-- 
-    name: string 
-    cc: integer
-    brand: string
-    plate: string
-    color: string
-    year: date 
+    name:string 
+    cc:integer
+    brand:string
+    plate:string
+    color:string
+    year:date 
      -->
 
+ <Motorcycle>
+        rails g model Motorcycle name:string cc:integer brand:string plate:string color:string year:date
+ </Motorcycle> 
 
 <!-- Document -->
     <!-- 
-     name: string
-     year: date 
-     uf: string
-     number: string
-     description: string
+     name:string
+     year:date 
+     uf:string
+     number:string
+     description:string
      -->
 
+ <Document>
+        rails g model Document name:string year:date uf:string number:string description:string
+ </Document>
      
 <!-- Monthly  -->
     <!-- 
-        user: references      
-        year: integer
-        month: integer 
-        notes: text
+        user:references      
+        year:integer
+        month:integer 
+        notes:text
         kind:integer
      -->
-
+ <Monthly>
+    rails g model Monthly user:references year:integer month:integer notes:text kind:integer
+ </Monthly>
      
 <!-- Bank -->
     <!-- 
         value:decimal
      -->
-       
+ <Bank>
+    rails g model Bank value:decimal
+ </Bank>
 <!-- Removal -->
     <!-- 
         value:decimal
-        description: text
+        description:text
      -->
-
+ <Removal>
+    rails g model Removal value:decimal description:text
+ </Removal>
 <!-- Deposit -->
     <!-- 
         value:decimal
-        description: text
+        description:text
      -->
+ <Deposit>
+    rails g model Deposit value:decimal description:text
+ </Deposit>

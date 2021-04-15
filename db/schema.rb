@@ -10,7 +10,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_023007) do
+ActiveRecord::Schema.define(version: 2021_04_15_025935) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street"
+    t.string "number"
+    t.string "district"
+    t.string "city"
+    t.string "state"
+    t.string "cep"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "banks", force: :cascade do |t|
+    t.decimal "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "deposits", force: :cascade do |t|
+    t.decimal "value"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.date "year"
+    t.string "uf"
+    t.string "number"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "factions", force: :cascade do |t|
+    t.string "name"
+    t.date "data_found"
+    t.integer "director_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["director_id"], name: "index_factions_on_director_id"
+  end
+
+  create_table "monthlies", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "year"
+    t.integer "month"
+    t.text "notes"
+    t.integer "kind"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_monthlies_on_user_id"
+  end
+
+  create_table "motorcycles", force: :cascade do |t|
+    t.string "name"
+    t.integer "cc"
+    t.string "brand"
+    t.string "plate"
+    t.string "color"
+    t.date "year"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "removals", force: :cascade do |t|
+    t.decimal "value"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -36,5 +108,7 @@ ActiveRecord::Schema.define(version: 2021_04_15_023007) do
     t.index ["faction_id"], name: "index_users_on_faction_id"
   end
 
+  add_foreign_key "factions", "directors"
+  add_foreign_key "monthlies", "users"
   add_foreign_key "users", "factions"
 end
