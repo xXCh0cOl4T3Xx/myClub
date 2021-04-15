@@ -1,0 +1,106 @@
+
+cronogra:
+    Models       
+    Relações
+    Devise(login)
+    cancancan(autentication)
+
+
+    Relacionamentos:
+
+    padrinho   |-----|| usuario
+    filho      ||----|| pai/mae
+    diretor    |-----|  faction
+    moto       ||-----| dono
+    mesalidade ||---- | usuario
+
+
+<!-- User --> ]
+    <!-- 
+   - nome: string
+   - kind: enum [:admin, :treasurer]
+   - position: enum [:president, :v-president, :director, :treasurer, :prospect, :mirror, :son]
+   - status: enum [:active, :inactive, :expelled]
+   - year: date (data de nascimento)
+   - marital: enum [:single, :married]
+   - phone: string
+   - emergency_phone: string
+   - email: string
+   - date_add: date
+   - date_baptized: date
+   - occupation: string
+   - function: string
+   - notes: text
+   - photo: string
+   - faction: references 
+     -->
+<user>
+rails g model User name:string kind:integer position:integer  status:integer year:date marital:date phone:string emergency_phone:string email:string date_add:date date_baptized:date occupation:string function:string notes:text birth:date cpf:string photo:string faction:references 
+</user>
+
+<!-- Address -->
+    <!-- 
+      street: string
+      number: string
+      district: string
+      city: string 
+      state: string
+      cep: string
+     -->
+
+
+<!-- Faction -->
+    <!-- 
+      nome: string
+      data_found: date 
+      director: references
+     -->
+
+
+<!-- Motorcycle -->
+    <!-- 
+    name: string 
+    cc: integer
+    brand: string
+    plate: string
+    color: string
+    year: date 
+     -->
+
+
+<!-- Document -->
+    <!-- 
+     name: string
+     year: date 
+     uf: string
+     number: string
+     description: string
+     -->
+
+     
+<!-- Monthly  -->
+    <!-- 
+        user: references      
+        year: integer
+        month: integer 
+        notes: text
+        kind:integer
+     -->
+
+     
+<!-- Bank -->
+    <!-- 
+        value:decimal
+     -->
+       
+<!-- Removal -->
+    <!-- 
+        value:decimal
+        description: text
+     -->
+
+<!-- Deposit -->
+    <!-- 
+        value:decimal
+        description: text
+     -->
