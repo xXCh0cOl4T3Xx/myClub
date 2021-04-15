@@ -8,13 +8,14 @@ cronogra:
 
     Relacionamentos:
 
-    padrinho   |-----|| usuario
-    filho      ||----|| pai/mae
+    padrinho   |-----|| usuario   
     diretor    |-----|  faction
-    moto       ||-----| dono
-    mesalidade ||---- | usuario
-    usuarios   ||----|| endereços
-
+    
+    * moto       ||-----| dono
+    * mesalidade ||---- | usuario
+    * usuarios   ||----|| endereços
+    * faction     |-----| endereços
+    * filho      ||----|| pai/mae
 
 <!-- User --> ]
     <!-- 
@@ -143,9 +144,17 @@ cronogra:
     rails g model Family_member user:references member_reference:references
 </Family_member>
 
+ <!-- Godfather -->
+    <!-- 
+       godfather:references    "padrinho"
+       goddaughter:references  "afilhado"
+     -->
+ <Godfather>
+    rails g model Godfather godfather:references goddaughter:references
+ </Godfather>
  <!--  -->
     <!-- 
        
         
      -->
-    
+ 

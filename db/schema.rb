@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_045335) do
+ActiveRecord::Schema.define(version: 2021_04_15_050835) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 2021_04_15_045335) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_reference_id"], name: "index_family_members_on_member_reference_id"
     t.index ["user_id"], name: "index_family_members_on_user_id"
+  end
+
+  create_table "godfathers", force: :cascade do |t|
+    t.integer "godfather_id", null: false
+    t.integer "goddaughter_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["goddaughter_id"], name: "index_godfathers_on_goddaughter_id"
+    t.index ["godfather_id"], name: "index_godfathers_on_godfather_id"
   end
 
   create_table "monthlies", force: :cascade do |t|
@@ -122,6 +131,8 @@ ActiveRecord::Schema.define(version: 2021_04_15_045335) do
   add_foreign_key "factions", "directors"
   add_foreign_key "family_members", "member_references"
   add_foreign_key "family_members", "users"
+  add_foreign_key "godfathers", "goddaughters"
+  add_foreign_key "godfathers", "godfathers"
   add_foreign_key "monthlies", "users"
   add_foreign_key "users", "factions"
   add_foreign_key "users", "godfathers"
