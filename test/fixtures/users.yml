@@ -5,37 +5,39 @@ one:
   kind: 1
   position: 1
   status: 1
-  year: 2021-04-14
-  marital: 2021-04-14
+  year: 2021-04-15
+  marital: 2021-04-15
   phone: MyString
   emergency_phone: MyString
   email: MyString
-  date_add: 2021-04-14
-  date_baptized: 2021-04-14
+  date_add: 2021-04-15
+  date_baptized: 2021-04-15
   occupation: MyString
   function: MyString
   notes: MyText
-  birth: 2021-04-14
+  birth: 2021-04-15
   cpf: MyString
   photo: MyString
   faction: one
+  godfather: one
 
 two:
   name: MyString
   kind: 1
   position: 1
   status: 1
-  year: 2021-04-14
-  marital: 2021-04-14
+  year: 2021-04-15
+  marital: 2021-04-15
   phone: MyString
   emergency_phone: MyString
   email: MyString
-  date_add: 2021-04-14
-  date_baptized: 2021-04-14
+  date_add: 2021-04-15
+  date_baptized: 2021-04-15
   occupation: MyString
   function: MyString
   notes: MyText
-  birth: 2021-04-14
+  birth: 2021-04-15
   cpf: MyString
   photo: MyString
   faction: two
+  godfather: two

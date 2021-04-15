@@ -13,39 +13,50 @@ cronogra:
     diretor    |-----|  faction
     moto       ||-----| dono
     mesalidade ||---- | usuario
+    usuarios   ||----|| endereços
 
 
 <!-- User --> ]
     <!-- 
-   - name: string
-   - kind: enum [:admin, :treasurer]
-   - position: enum [:president, :v-president, :director, :treasurer, :prospect, :mirror, :son]
-   - status: enum [:active, :inactive, :expelled]
-   - year: date (data de nascimento)
-   - marital: enum [:single, :married]
-   - phone: string
-   - emergency_phone: string
-   - email: string
-   - date_add: date
-   - date_baptized: date
-   - occupation: string
-   - function: string
-   - notes: text
-   - photo: string
-   - faction: references 
+    name: string
+    kind: enum [:admin, :treasurer]
+    position: enum [:president, :v_president, :director, :prospect, :mirror, :son]
+    status: enum [:active, :inactive, :expelled]
+    year: date (data de nascimento)
+    marital: enum [:single, :married]
+    phone: string
+    emergency_phone: string
+    email: string
+    date_add: date
+    date_baptized: date
+    occupation: string
+    function: string
+    notes: text
+    photo: string
+    faction: references 
+    godfather:references
+rails g migration add_godfather_to_users godfather:references
+
+  enum kind: [:admin, :treasurer]
+  enum position: [:president, :v_president, :director, :member, :prospect, :mirror, :son]
+  enum status: [:active, :inactive, :expelled]
+  enum marital: [:single, :married]
+  has_many :addresses
+ 
+    
      -->
  <user>
-    rails g model User name:string kind:integer position:integer  status:integer year:date marital:date phone:string emergency_phone:string email:string date_add:date date_baptized:date occupation:string function:string notes:text birth:date cpf:string photo:string faction:references 
+    rails g model User name:string kind:integer position:integer  status:integer year:date marital:date phone:string emergency_phone:string email:string date_add:date date_baptized:date occupation:string function:string notes:text birth:date cpf:string photo:string faction:references godfather:references 
  </user>
 
 <!-- Address -->
     <!-- 
-     - street:string
-     - number:string
-     - district:string
-     - city:string 
-     - state:string
-     - cep:string
+      street:string
+      number:string
+      district:string
+      city:string 
+      state:string
+      cep:string
      -->
  <address>
      rails g model Address street:string number:string district:string city:string state:string cep:string
