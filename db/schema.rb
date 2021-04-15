@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_044514) do
+ActiveRecord::Schema.define(version: 2021_04_15_045335) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 2021_04_15_044514) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["director_id"], name: "index_factions_on_director_id"
+  end
+
+  create_table "family_members", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "member_reference_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_reference_id"], name: "index_family_members_on_member_reference_id"
+    t.index ["user_id"], name: "index_family_members_on_user_id"
   end
 
   create_table "monthlies", force: :cascade do |t|
@@ -111,6 +120,8 @@ ActiveRecord::Schema.define(version: 2021_04_15_044514) do
   end
 
   add_foreign_key "factions", "directors"
+  add_foreign_key "family_members", "member_references"
+  add_foreign_key "family_members", "users"
   add_foreign_key "monthlies", "users"
   add_foreign_key "users", "factions"
   add_foreign_key "users", "godfathers"
