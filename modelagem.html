@@ -35,7 +35,6 @@ cronogra:
     photo: string
     faction: references 
     godfather:references
-rails g migration add_godfather_to_users godfather:references
 
   enum kind: [:admin, :treasurer]
   enum position: [:president, :v_president, :director, :member, :prospect, :mirror, :son]
