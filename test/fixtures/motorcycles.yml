@@ -6,7 +6,11 @@ one:
   brand: MyString
   plate: MyString
   color: MyString
+<<<<<<< HEAD
   year: 2021-04-15
+=======
+  year: 2021-04-14
+>>>>>>> 936719548bdc5cb4daad6349770680c37a72e515
 
 two:
   name: MyString
@@ -14,4 +18,8 @@ two:
   brand: MyString
   plate: MyString
   color: MyString
+<<<<<<< HEAD
   year: 2021-04-15
+=======
+  year: 2021-04-14
+>>>>>>> 936719548bdc5cb4daad6349770680c37a72e515
