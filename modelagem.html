@@ -8,7 +8,7 @@ cronogra:
 
     Relacionamentos:
 
-<<<<<<< HEAD
+
     padrinho   |-----|| usuario   
     diretor    |-----|  faction
     
@@ -17,17 +17,8 @@ cronogra:
     * usuarios   ||----|| endereços
     * faction     |-----| endereços
     * filho      ||----|| pai/mae
-=======
-    padrinho   |-----|| usuario
-    filho      ||----|| pai/mae
-    diretor    |-----|  faction
-    moto       ||-----| dono
-    mesalidade ||---- | usuario
-    usuarios   ||----|| endereços
 
->>>>>>> 936719548bdc5cb4daad6349770680c37a72e515
-
-<!-- User --> ]
+<!-- User --> 
     <!-- 
     name: string
     kind: enum [:admin, :treasurer]
@@ -45,17 +36,8 @@ cronogra:
     notes: text
     photo: string
     faction: references 
-    godfather:references
+    godfather:references 
 
-rails g migration add_godfather_to_users godfather:references
-
-  enum kind: [:admin, :treasurer]
-  enum position: [:president, :v_president, :director, :member, :prospect, :mirror, :son]
-  enum status: [:active, :inactive, :expelled]
-  enum marital: [:single, :married]
-  has_many :addresses
- 
-    
      -->
  <user>
     rails g model User name:string kind:integer position:integer  status:integer year:date marital:date phone:string emergency_phone:string email:string date_add:date date_baptized:date occupation:string function:string notes:text birth:date cpf:string photo:string faction:references godfather:references 
@@ -125,10 +107,15 @@ rails g migration add_godfather_to_users godfather:references
      
 <!-- Bank -->
     <!-- 
+        bank:string
+        account_type:integer
+        account:string
+        agency:string
         value:decimal
      -->
+     
  <Bank>
-    rails g model Bank value:decimal
+    rails g model Bank  bank:string  account_type:integer account:string agency:string Balance:decimal
  </Bank>
 <!-- Removal -->
     <!-- 
