@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  year: 2021-05-07
+  uf: MyString
+  number: MyString
+  description: MyString
+
+two:
+  name: MyString
+  year: 2021-05-07
+  uf: MyString
+  number: MyString
+  description: MyString
