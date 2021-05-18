@@ -9,7 +9,6 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.date :marital
       t.string :phone
       t.string :emergency_phone
-      t.string :email
       t.date :date_add
       t.date :date_baptized
       t.string :occupation

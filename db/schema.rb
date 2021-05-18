@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_002914) do
+ActiveRecord::Schema.define(version: 2021_05_18_024502) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -19,13 +19,6 @@ ActiveRecord::Schema.define(version: 2021_05_08_002914) do
     t.string "city"
     t.string "state"
     t.string "cep"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "articles", force: :cascade do |t|
-    t.string "autor"
-    t.text "artigo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -122,7 +115,6 @@ ActiveRecord::Schema.define(version: 2021_05_08_002914) do
     t.date "marital"
     t.string "phone"
     t.string "emergency_phone"
-    t.string "email"
     t.date "date_add"
     t.date "date_baptized"
     t.string "occupation"
@@ -135,8 +127,15 @@ ActiveRecord::Schema.define(version: 2021_05_08_002914) do
     t.integer "godfather_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["faction_id"], name: "index_users_on_faction_id"
     t.index ["godfather_id"], name: "index_users_on_godfather_id"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "factions", "directors"
