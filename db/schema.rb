@@ -123,8 +123,8 @@ ActiveRecord::Schema.define(version: 2021_05_18_024502) do
     t.date "birth"
     t.string "cpf"
     t.string "photo"
-    t.integer "faction_id", null: false
-    t.integer "godfather_id", null: false
+    t.integer "faction_id"
+    t.integer "godfather_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false

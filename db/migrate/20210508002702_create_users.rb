@@ -17,8 +17,8 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.date :birth
       t.string :cpf
       t.string :photo
-      t.references :faction, null: false, foreign_key: true
-      t.references :godfather, null: false, foreign_key: true
+      t.references :faction, null: true, foreign_key: true
+      t.references :godfather, null: true, foreign_key: true
 
       t.timestamps
     end
