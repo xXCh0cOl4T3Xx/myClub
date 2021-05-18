@@ -10,8 +10,8 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 gem 'rails_admin'
 # Use Devise
 gem 'devise'
-# Use Postgree SQL
-
+# Use Postgre SQL
+gem 'pg', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
